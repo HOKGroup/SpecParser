@@ -12,8 +12,8 @@ I did not write it by hand
 To create one you should install Qtcreator, then import .ui into .py
 """
 
-
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -37,12 +37,11 @@ class Ui_MainWindow(object):
         self.selectSS.setObjectName("selectSS")
 
         self.runButton = QtWidgets.QPushButton(self.centralwidget)
-        self.runButton.setGeometry(QtCore.QRect(800,565, 140, 41))
+        self.runButton.setGeometry(QtCore.QRect(800, 565, 140, 41))
         self.runButton.setObjectName("runButton")
 
-
         self.closeButton = QtWidgets.QPushButton(self.centralwidget)
-        self.closeButton.setGeometry(QtCore.QRect(650,565, 140, 41))
+        self.closeButton.setGeometry(QtCore.QRect(650, 565, 140, 41))
         self.closeButton.setObjectName("closeButton")
 
         """
@@ -51,24 +50,20 @@ class Ui_MainWindow(object):
         self.saveButton.setObjectName("saveButton")
         """
 
-
-        self.loadButton = QtWidgets.QPushButton(self.centralwidget)
-        self.loadButton.setGeometry(QtCore.QRect(20,565, 140, 41))
-        self.loadButton.setObjectName("loadButton")
-
-
+        # self.loadButton = QtWidgets.QPushButton(self.centralwidget)
+        # self.loadButton.setGeometry(QtCore.QRect(20, 565, 140, 41))
+        # self.loadButton.setObjectName("loadButton")
 
         self.labelPATH = QtWidgets.QLabel(self.centralwidget)
         self.labelPATH.setGeometry(QtCore.QRect(320, 25, 251, 20))
         self.labelPATH.setObjectName("labelPATH")
 
-
         self.pr_s = QtWidgets.QLabel(self.centralwidget)
-        self.pr_s.setGeometry(QtCore.QRect(418, 70, 251, 20))
+        self.pr_s.setGeometry(QtCore.QRect(218, 70, 251, 20))
         self.pr_s.setObjectName("pr_s")
 
         self.se_s = QtWidgets.QLabel(self.centralwidget)
-        self.se_s.setGeometry(QtCore.QRect(710, 70, 251, 20))
+        self.se_s.setGeometry(QtCore.QRect(610, 70, 251, 20))
         self.se_s.setObjectName("pr_s")
 
         self.labelPATH1 = QtWidgets.QLabel(self.centralwidget)
@@ -108,45 +103,49 @@ class Ui_MainWindow(object):
             self.text_edits.append(temp)
         """
 
-        self.text_edits = []
+        self.buttons_primary = []
         for i in range(7):
-            temp = QtWidgets.QLabel(self.centralwidget)
-            temp.setGeometry(QtCore.QRect(145, 97 + 65*i, 200, 42))
-            temp.setObjectName("label{}".format(i))
-            self.text_edits.append(temp)
+            temp = QtWidgets.QPushButton(self.centralwidget)
+            temp.setGeometry(QtCore.QRect(405, 97 + 65 * i, 100, 32))
+            temp.setObjectName("button_primary{}".format(i))
+            temp.setText('browse..')
+            self.buttons_primary.append(temp)
+
+        self.buttons_secondary = []
+        for i in range(7):
+            temp = QtWidgets.QPushButton(self.centralwidget)
+            temp.setGeometry(QtCore.QRect(805, 97 + 65 * i, 100, 32))
+            temp.setObjectName("button_secondary{}".format(i))
+            temp.setText('browse..')
+            self.buttons_secondary.append(temp)
 
         self.text_edits_primary = []
         for i in range(7):
             temp = QtWidgets.QPlainTextEdit(self.centralwidget)
-            temp.setGeometry(QtCore.QRect(345, 100 + 65*i, 250, 56))
-            temp.setObjectName("input{}".format(i))
+            temp.setGeometry(QtCore.QRect(145, 100 + 65 * i, 250, 56))
+            temp.setObjectName("input_primary{}".format(i))
             self.text_edits_primary.append(temp)
 
         self.text_edits_secondary = []
         for i in range(7):
             temp = QtWidgets.QPlainTextEdit(self.centralwidget)
-            temp.setGeometry(QtCore.QRect(645, 100 + 65*i, 250, 56))
+            temp.setGeometry(QtCore.QRect(545, 100 + 65 * i, 250, 56))
             temp.setObjectName("input_sec{}".format(i))
             self.text_edits_secondary.append(temp)
 
-
-
-        #self.checkBox = QtWidgets.QCheckBox(self.centralwidget)
-        #elf.checkBox.setGeometry(QtCore.QRect(30, 110, 171, 20))
-        #self.checkBox.setObjectName("checkBox")
-
+        # self.checkBox = QtWidgets.QCheckBox(self.centralwidget)
+        # elf.checkBox.setGeometry(QtCore.QRect(30, 110, 171, 20))
+        # self.checkBox.setObjectName("checkBox")
 
         self.checkbox_type = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkbox_type.setGeometry(QtCore.QRect(355, 565, 281, 30))
+        self.checkbox_type.setGeometry(QtCore.QRect(25, 570, 281, 30))
         self.checkbox_type.setFont(QtGui.QFont('Arial', 16))
         self.checkbox_type.setText("Use new type (Oct 2022)")
         self.checkbox_type.setObjectName("cb")
 
-
-
         """
         self.centralwidget.setObjectName("text_edit")
-        
+
         self.text_edit = QtWidgets.QPushButton(self.centralwidget)
         self.text_edit.setGeometry(QtCore.QRect(20, 140, 271, 41))
         self.text_edit.setObjectName("text_edit")
@@ -174,27 +173,28 @@ class Ui_MainWindow(object):
         self.runButton.setText(_translate("MainWindow", "Run"))
         self.closeButton.setText(_translate("MainWindow", "Close"))
 
-        #self.saveButton.setText(_translate("MainWindow", "Save Pattern"))
-        self.loadButton.setText(_translate("MainWindow", "Load Pattern"))
+        # self.saveButton.setText(_translate("MainWindow", "Save Pattern"))
+        # self.loadButton.setText(_translate("MainWindow", "Load Pattern"))
 
+        # self.labelPATH.setText(_translate("MainWindow", "Save PATH: default pdf location"))
 
-        #self.labelPATH.setText(_translate("MainWindow", "Save PATH: default pdf location"))
+        self.labelPATH1.setText(_translate("MainWindow", "Search 1"))
+        self.labelPATH2.setText(_translate("MainWindow", "Search 2"))
+        self.labelPATH3.setText(_translate("MainWindow", "Search 3"))
+        self.labelPATH4.setText(_translate("MainWindow", "Search 4"))
+        self.labelPATH5.setText(_translate("MainWindow", "Search 5"))
+        self.labelPATH6.setText(_translate("MainWindow", "Search 6"))
+        self.labelPATH7.setText(_translate("MainWindow", "Search 7"))
+        """
+        self.text_edits_primary[0].setText(_translate("MainWindow", ""))
+        self.text_edits_primary[1].setText(_translate("MainWindow", ""))
+        self.text_edits_primary[2].setText(_translate("MainWindow", ""))
+        self.text_edits_primary[3].setText(_translate("MainWindow", ""))
+        self.text_edits_primary[4].setText(_translate("MainWindow", ""))
+        self.text_edits_primary[5].setText(_translate("MainWindow", ""))
+        """
 
-        self.labelPATH1.setText(_translate("MainWindow", "Level 1 Pattern"))
-        self.labelPATH2.setText(_translate("MainWindow", "Level 2 Pattern"))
-        self.labelPATH3.setText(_translate("MainWindow", "Level 3 Pattern"))
-        self.labelPATH4.setText(_translate("MainWindow", "Level 4 Pattern"))
-        self.labelPATH5.setText(_translate("MainWindow", "Level 5 Pattern"))
-        self.labelPATH6.setText(_translate("MainWindow", "Level 6 Pattern"))
-        self.labelPATH7.setText(_translate("MainWindow", "Level 7 Pattern"))
-        self.text_edits[0].setText(_translate("MainWindow", ""))
-        self.text_edits[1].setText(_translate("MainWindow", ""))
-        self.text_edits[2].setText(_translate("MainWindow", ""))
-        self.text_edits[3].setText(_translate("MainWindow", ""))
-        self.text_edits[4].setText(_translate("MainWindow", ""))
-        self.text_edits[5].setText(_translate("MainWindow", ""))
-        #self.text_edits[6].setText(_translate("MainWindow", "Level 7 \nPattern"))
+        # self.text_edits[6].setText(_translate("MainWindow", "Level 7 \nPattern"))
 
-        self.pr_s.setText(_translate("MainWindow", "Primary search"))
-        self.se_s.setText(_translate("MainWindow", "Secondary search"))
-
+        self.pr_s.setText(_translate("MainWindow", "Level 2 – Primary"))
+        self.se_s.setText(_translate("MainWindow", "Level 2 – Secondary"))

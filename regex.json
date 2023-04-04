@@ -1,6 +1,6 @@
 {
   "1": {
-    "regex": "PART [0-9]+",
+    "regex": "PART [0-9]",
     "comment": "PART # \n(for ex: 'PART 1', 'PART 5')"
   },
   "2": {
